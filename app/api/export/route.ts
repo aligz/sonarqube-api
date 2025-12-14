@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from 'next/server';
 import axios from 'axios';
 import ExcelJS from 'exceljs';
+import translate from 'translate';
+import id from './id.json';
+
+translate.engine = "google";
 
 export async function POST(req: NextRequest) {
     try {
@@ -84,9 +88,15 @@ export async function POST(req: NextRequest) {
             { header: 'Assessment Rule', key: 'ass_rule', width: 50 },
             { header: 'Assessment Message', key: 'ass_message', width: 50 },
             { header: 'Link', key: 'link', width: 20 },
+            { header: 'Recommendation', key: 'recom', width: 50 }
         ];
 
-        allIssues.forEach((issue, index) => {
+        let index = 0;
+        for (const issue of allIssues) {
+            // const messageTranslate = await translate(issue.message, 'id')
+            const messageTranslate = issue.message;
+            const recom = id[issue.rule];
+
             worksheet.addRow({
                 key: issue.key,
                 type: issue.type,
@@ -100,15 +110,17 @@ export async function POST(req: NextRequest) {
                 creationDate: issue.creationDate,
                 updateDate: issue.updateDate,
                 number: (index + 1) + '.',
-                ass_path_file: issue.component.replace(projectKey+':', '') + `:${issue.textRange.startLine}${(issue.textRange.endLine != issue.textRange.startLine ? '-' + issue.textRange.endLine : '')}`,
-                ass_rule: `(Rule ${issue.rule}) ${issue.message}`,
-                ass_message: issue.severity,
+                ass_path_file: issue.component.replace(projectKey + ':', '') + `:${issue.textRange.startLine}${(issue.textRange.endLine != issue.textRange.startLine ? '-' + issue.textRange.endLine : '')}`,
+                ass_rule: `(Rule ${issue.rule}) ${messageTranslate}`,
+                ass_message: recom?.dampak ?? issue.severity,
                 link: {
                     text: `${baseUrl}/project/issues?open=${issue.key}&id=${issue.project}`,
                     hyperlink: `${baseUrl}/project/issues?open=${issue.key}&id=${issue.project}`
                 },
+                recom: recom?.saran
             });
-        });
+            index++;
+        };
 
         // Write to buffer
         const buffer = await workbook.xlsx.writeBuffer();

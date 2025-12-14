@@ -1,0 +1,34 @@
+{
+    "typescript:S6848": {
+        "dampak": "Elemen non-interaktif tidak dirancang untuk menjadi interaktif, sehingga menambahkan penangan interaktif dapat menyebabkan perilaku yang tidak terduga. Misalnya, elemen non-interaktif secara alami tidak menerima fokus keyboard, sehingga pengguna keyboard mungkin tidak dapat mengaktifkan penangan tersebut.",
+        "saran": "Ganti elemen non-interaktif dengan elemen interaktif. Jika karena alasan tertentu Anda tidak dapat mengganti elemen non-interaktif, Anda dapat menambahkan atribut peran interaktif padanya dan mengelola penanganan kejadian keyboard dan fokusnya secara manual."
+    },
+    "typescript:S1082": {
+        "dampak": "Pengguna dengan tanpa bantuan mouse tidak dapat menjelajahi situs ini",
+        "saran": "Tambahkan setidaknya salah satu dari event handler berikut: onKeyUp, onKeyDown, onKeyPress ke elemen saat menggunakan event handler onClick. Tambahkan event handler onfocus/onblur yang sesuai ke elemen saat menggunakan event handler onmouseover/onmouseout."
+    },
+    "typescript:S1128": {
+        "dampak": "Impor-impor yang tidak digunakan pada fungsionalitas aplikasi akan menambah beban ekstra pada bundel JavaScript, yang berpotensi menyebabkan masalah kinerja dan pemeliharaan.",
+        "saran": "Untuk mengurangi masalah yang terkait dengan impor yang tidak perlu, secara teratur tinjau dan hapus impor apa pun yang tidak digunakan."
+    },
+    "typescript:S1854": {
+        "dampak": "Memungkinkan memberikan efek negatif ke performa dan mengurangi kejelasan atau kebersihan kode.",
+        "saran": "Hapus assignment yang tidak diperlukan kemudian, uji kode tersebut untuk memastikan bahwa sisi kanan dari suatu penugasan tidak memiliki efek samping."
+    },
+    "typescript:S6571": {
+        "dampak": "Saat mendefinisikan gabungan atau irisan di TypeScript, ada kemungkinan secara keliru menyertakan konstituen tipe yang mencakup konstituen lain, yang tidak memiliki efek apa pun, atau yang lebih membatasi.",
+        "saran": "Tipe yang berlebihan dan yang ditimpa harus dihapus."
+    },
+    "typescript:S6767": {
+        "dampak": "Membiarkan props yang tidak terpakai dalam komponen React dapat membuat kode lebih sulit dipahami dan dipelihara.",
+        "saran": "Untuk menghindari masalah ini, Anda harus menghapus semua props yang tidak digunakan dari komponen React."
+    },
+    "Web:S6853": {
+        "dampak": "Ketika elemen label tidak memiliki label teks atau kontrol terkait, hal itu dapat menyebabkan beberapa masalah: Aksesibilitas Buruk, Antarmuka Pengguna yang Membingungkan, Kemudahan Pemeliharaan Kode",
+        "saran": "Jika memiliki sepasang elemen `control` dan `<label>`, pastikan `<label>` membungkus elemen `control`. Jika tidak memiliki elemen `control`, tambahkan satu."
+    },
+    "javascript:S125": {
+        "dampak": "Kode yang dikomentari mengalihkan fokus dari kode yang sebenarnya dieksekusi.",
+        "saran": "Hapus kode yang dikomentari."
+    }
+}
