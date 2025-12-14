@@ -79,10 +79,14 @@ export async function POST(req: NextRequest) {
             { header: 'Resolution', key: 'resolution', width: 15 },
             { header: 'Creation Date', key: 'creationDate', width: 20 },
             { header: 'Update Date', key: 'updateDate', width: 20 },
+            { header: 'Number', key: 'number', width: 20 },
+            { header: 'Assessment Path', key: 'ass_path_file', width: 50 },
+            { header: 'Assessment Rule', key: 'ass_rule', width: 50 },
+            { header: 'Assessment Message', key: 'ass_message', width: 50 },
             { header: 'Link', key: 'link', width: 20 },
         ];
 
-        allIssues.forEach((issue) => {
+        allIssues.forEach((issue, index) => {
             worksheet.addRow({
                 key: issue.key,
                 type: issue.type,
@@ -95,10 +99,14 @@ export async function POST(req: NextRequest) {
                 resolution: issue.resolution,
                 creationDate: issue.creationDate,
                 updateDate: issue.updateDate,
+                number: (index + 1) + '.',
+                ass_path_file: issue.component.replace(projectKey+':', '') + `:${issue.textRange.startLine}${(issue.textRange.endLine != issue.textRange.startLine ? '-' + issue.textRange.endLine : '')}`,
+                ass_rule: `(Rule ${issue.rule}) ${issue.message}`,
+                ass_message: issue.severity,
                 link: {
                     text: `${baseUrl}/project/issues?open=${issue.key}&id=${issue.project}`,
                     hyperlink: `${baseUrl}/project/issues?open=${issue.key}&id=${issue.project}`
-                }
+                },
             });
         });
 
