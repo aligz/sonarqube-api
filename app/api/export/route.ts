@@ -92,10 +92,13 @@ export async function POST(req: NextRequest) {
         ];
 
         let index = 0;
+        let rules = [];
+
         for (const issue of allIssues) {
             // const messageTranslate = await translate(issue.message, 'id')
             const messageTranslate = issue.message;
             const recom = id[issue.rule];
+            rules.push(issue.rule);
 
             worksheet.addRow({
                 key: issue.key,
@@ -103,14 +106,14 @@ export async function POST(req: NextRequest) {
                 rule: issue.rule,
                 severity: issue.severity,
                 component: issue.component,
-                line: `${issue.textRange.startLine}-${issue.textRange.endLine}`,
+                line: `${issue.textRange?.startLine}-${issue.textRange?.endLine}`,
                 message: issue.message,
                 status: issue.status,
                 resolution: issue.resolution,
                 creationDate: issue.creationDate,
                 updateDate: issue.updateDate,
                 number: (index + 1) + '.',
-                ass_path_file: issue.component.replace(projectKey + ':', '') + `:${issue.textRange.startLine}${(issue.textRange.endLine != issue.textRange.startLine ? '-' + issue.textRange.endLine : '')}`,
+                ass_path_file: issue.component.replace(projectKey + ':', '') + `:${issue.textRange?.startLine}${(issue.textRange?.endLine != issue.textRange?.startLine ? '-' + issue.textRange?.endLine : '')}`,
                 ass_rule: `(Rule ${issue.rule}) ${messageTranslate}`,
                 ass_message: recom?.dampak ?? issue.severity,
                 link: {
@@ -121,6 +124,15 @@ export async function POST(req: NextRequest) {
             });
             index++;
         };
+
+        // const fs = await import('fs');
+        // fs.writeFileSync('rules.json', JSON.stringify([...new Set(rules)], null, 2));
+
+
+        // return NextResponse.json(
+        //     { error: 'Missing required fields: sonarUrl, token, projectKey' },
+        //     { status: 400 }
+        // );
 
         // Write to buffer
         const buffer = await workbook.xlsx.writeBuffer();

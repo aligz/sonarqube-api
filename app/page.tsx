@@ -10,8 +10,8 @@ function cn(...inputs: (string | undefined | null | false)[]) {
 }
 
 export default function Home() {
-  const [sonarUrl, setSonarUrl] = useState('http://localhost:9000');
-  const [token, setToken] = useState('');
+  const [sonarUrl, setSonarUrl] = useState('http://192.168.191.106:9000');
+  const [token, setToken] = useState('squ_eb53c10f8a445421d9af4c60b09e399697f6b396');
   const [projectKey, setProjectKey] = useState('');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);

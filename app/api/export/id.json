@@ -30,5 +30,297 @@
     "javascript:S125": {
         "dampak": "Kode yang dikomentari mengalihkan fokus dari kode yang sebenarnya dieksekusi.",
         "saran": "Hapus kode yang dikomentari."
+    },
+    "typescript:S6759": {
+        "dampak": "Props React sebaiknya bersifat read-only karena hal ini membantu mewujudkan prinsip immutabilitas pada komponen fungsional React. Jika props bersifat mutable (dapat diubah), komponen anak dapat memodifikasi props secara langsung, yang menyebabkan perilaku yang tidak dapat diprediksi dan mempersulit pelacakan bug.",
+        "saran": "Pastikan props React bersifat read-only. Jika props harus dapat diubah, pertimbangkan untuk menggunakan state atau ref untuk menyimpan nilai yang dapat diubah."
+    },
+    "typescript:S2201": {
+        "dampak": "Jika suatu fungsi mengembalikan nilai yang tidak digunakan atau tidak diberikan ke suatu variabel, hal itu mungkin menunjukkan bahwa fungsi tersebut tidak digunakan dengan benar atau terdapat kesalahan dalam kode. Hal ini dapat membuat kode lebih sulit dipahami dan dipelihara, dan juga dapat menyebabkan kesalahan jika nilai kembalian tersebut dibutuhkan di bagian kode selanjutnya.",
+        "saran": "Pastikan nilai kembalian fungsi digunakan dengan menetapkan nilai kembalian tersebut ke sebuah variabel."
+    },
+    "typescript:S2933": {
+        "dampak": "Jika suatu kelas memiliki field yang tidak ditandai sebagai readonly tetapi hanya diatur di dalam konstruktor, hal itu dapat menyebabkan kebingungan tentang tujuan penggunaan field tersebut.",
+        "saran": "Kolom-kolom tersebut harus ditandai sebagai hanya baca (readonly) untuk memperjelas tujuan penggunaannya, dan untuk mencegah pengelola di masa mendatang secara tidak sengaja mengubah penggunaannya."
+    },
+    "typescript:S1135": {
+        "dampak": "Tag TODO yang tidak ditangani dalam kode dapat memiliki implikasi signifikan terhadap proses pengembangan dan keseluruhan basis kode.",
+        "saran": "Selalu monitor tag TODO yang belum ditangani dalam kode."
+    },
+    "typescript:S3776": {
+        "dampak": "Para pengembang menghabiskan lebih banyak waktu untuk membaca dan memahami kode daripada menulisnya. Kompleksitas kognitif yang tinggi memperlambat perubahan dan meningkatkan biaya pemeliharaan.",
+        "saran": "Ekstrak kondisi kompleks ke dalam fungsi baru, uraikan fungsi-fungsi besar, hindari deep nesting dengan return lebih awal."
+    },
+    "typescript:S6660": {
+        "dampak": "Saat menggunakan pernyataan if bersarang, akan sulit untuk melacak logika dan memahami alur kode. Menggunakan else if membuat kode lebih ringkas dan mudah dipahami.",
+        "saran": "Ketika pernyataan `if` adalah satu-satunya pernyataan dalam blok `else`, lebih baik menggunakan `else if` karena menyederhanakan kode dan membuatnya lebih mudah dibaca."
+    },
+    "typescript:S2486": {
+        "dampak": "Ketika terjadi Exceptions, biasanya bukan ide yang baik untuk mengabaikannya begitu saja.",
+        "saran": "Lebih baik handle dengan benar, atau setidaknya menambahkan log."
+    },
+    "typescript:S125": {
+        "dampak": "Kode yang dikomentari mengalihkan fokus dari kode yang sebenarnya dieksekusi. Hal ini menciptakan gangguan yang meningkatkan kode pemeliharaan. Dan karena tidak pernah dieksekusi, kode tersebut dengan cepat menjadi usang dan tidak valid.",
+        "saran": "Kode yang dikomentari harus dihapus dan dapat diambil kembali dari riwayat kontrol sumber jika diperlukan."
+    },
+    "typescript:S6353": {
+        "dampak": "Kuantifikasi reguler expression dan character classes harus digunakan secara ringkas.",
+        "saran": "Gunakan versi yang lebih ringkas agar ekspresi regex lebih mudah dibaca."
+    },
+    "typescript:S6582": {
+        "dampak": "Sebaiknya gunakan ekspresi rantai opsional, karena lebih ringkas dan mudah dibaca.",
+        "saran": "Ganti dengan ?. Optional chaining adalah ekspresi logis yang memeriksa nilai null/undefined sebelum mengakses properti suatu objek, elemen suatu array, atau memanggil suatu fungsi."
+    },
+    "css:S4667": {
+        "dampak": "File CSS seharusnya tidak kosong",
+        "saran": "Hapus file CSS yang tidak digunakan."
+    },
+    "php:S113": {
+        "dampak": "Beberapa tools bekerja lebih baik jika file diakhiri dengan baris baru. Aturan ini hanya akan menimbulkan masalah jika baris baru tersebut hilang.",
+        "saran": "Pastikan file diakhiri dengan baris baru."
+    },
+    "php:S1131": {
+        "dampak": "Spasi kosong di akhir baris tidak memberikan informasi apa pun, dapat menimbulkan gangguan saat membandingkan versi berbeda dari file yang sama, dan dapat menimbulkan bug jika muncul setelah tanda \\ yang menandai kelanjutan baris.",
+        "saran": "Hapus spasi kosong di akhir baris."
+    },
+    "php:S1192": {
+        "dampak": "Literal string yang duplikat membuat proses refactoring menjadi kompleks dan rawan kesalahan, karena setiap perubahan perlu disebarkan ke semua kemunculannya.",
+        "saran": "Gunakan konstanta atau variabel untuk menyimpan nilai string yang sama, sehingga perubahan hanya perlu dilakukan di satu tempat."
+    },
+    "php:S1172": {
+        "dampak": "Parameter yang tidak digunakan dapat membingungkan pengembang lain dan menunjukkan kode yang tidak lengkap atau salah.",
+        "saran": "Hapus parameter yang tidak digunakan dari tanda tangan fungsi."
+    },
+    "Web:AvoidCommentedOutCodeCheck": {
+        "dampak": "Kode yang dikomentari mengalihkan fokus dan membuat basis kode menjadi berantakan.",
+        "saran": "Hapus kode yang dikomentari."
+    },
+    "Web:S1827": {
+        "dampak": "Atribut yang sudah usang di HTML5 sebaiknya tidak digunakan.",
+        "saran": "Hapus atribut yang sudah usang di HTML5."
+    },
+    "Web:ImgWithoutAltCheck": {
+        "dampak": "Pengguna tunanetra yang menggunakan pembaca layar tidak akan mengetahui isi dari gambar tersebut.",
+        "saran": "Tambahkan atribut `alt` yang deskriptif pada elemen `<img>`."
+    },
+    "Web:S6851": {
+        "dampak": "Kunci i18n atau teks placeholder sebagai teks alternatif gambar tidak memberikan deskripsi yang bermakna bagi pengguna pembaca layar.",
+        "saran": "Pastikan teks alternatif (alt text) memberikan deskripsi gambar yang akurat dan deskriptif."
+    },
+    "php:S1142": {
+        "dampak": "Terlalu banyak pernyataan return dalam satu fungsi dapat membuat alur eksekusi sulit diikuti.",
+        "saran": "Refaktor fungsi untuk mengurangi jumlah titik keluar (return)."
+    },
+    "php:S1488": {
+        "dampak": "Mendeklarasikan variabel hanya untuk segera mengembalikannya menambah baris kode yang tidak perlu.",
+        "saran": "Kembalikan ekspresi secara langsung tanpa menyimpannya dalam variabel lokal sementara."
+    },
+    "php:S3776": {
+        "dampak": "Developer menghabiskan lebih banyak waktu untuk membaca dan memahami kode daripada menulisnya. Kompleksitas kognitif yang tinggi memperlambat perubahan dan meningkatkan biaya pemeliharaan.",
+        "saran": "Ekstrak kondisi kompleks ke dalam fungsi baru, uraikan fungsi-fungsi besar, hindari deep nesting dengan return lebih awal."
+    },
+    "php:S105": {
+        "dampak": "Penggunaan karakter tab dapat menyebabkan masalah spasi yang tidak konsisten di berbagai editor teks dan sistem operasi, sehingga menyulitkan pembacaan dan pemeliharaan kode.",
+        "saran": "Gunakan spasi (biasanya 4 spasi) sebagai pengganti tab untuk indentasi kode."
+    },
+    "php:S1781": {
+        "dampak": "Dalam PHP, kata kunci dan konstanta tidak peka terhadap huruf besar/kecil, artinya dapat ditulis dengan huruf kecil atau huruf besar tanpa memengaruhi fungsinya. Hal ini memungkinkan fleksibilitas dan kemudahan penggunaan yang lebih besar saat menulis kode.",
+        "saran": "Kata kunci dan konstanta PHP 'true', 'false', 'null' harus ditulis dengan huruf kecil."
+    },
+    "php:S5797": {
+        "dampak": "Constants should not be used as conditions",
+        "saran": "Ganti dengan `if (condition)`."
+    },
+    "php:S108": {
+        "dampak": "Blok kode kosong (seperti dalam if/else/catch) mungkin menandakan logika yang belum selesai atau tertinggal.",
+        "saran": "Hapus blok kosong tersebut atau tambahkan komentar yang menjelaskan mengapa blok tersebut dibiarkan kosong."
+    },
+    "php:S1186": {
+        "dampak": "Method kosong yang tidak melakukan apa-apa dapat membingungkan dan mungkin menandakan fitur yang belum diimplementasikan.",
+        "saran": "Hapus method kosong atau tambahkan komentar penjelas jika memang diperlukan (misalnya untuk override)."
+    },
+    "php:S1481": {
+        "dampak": "Variabel lokal yang dideklarasikan tetapi tidak pernah digunakan menambah 'noise' pada kode.",
+        "saran": "Hapus variabel yang tidak digunakan."
+    },
+    "php:S1766": {
+        "dampak": "Deklarasi atau penggunaan struktur kode yang mungkin keliru atau tidak standar, berpotensi mempengaruhi kualitas kode.",
+        "saran": "Periksa kembali logika kode ini untuk memastikan tidak ada kesalahan logika atau redundansi."
+    },
+    "php:S1155": {
+        "dampak": "Menggunakan `count() > 0` untuk mengecek array kosong kurang efisien dibandingkan fungsi dedikasi.",
+        "saran": "Gunakan `!empty($array)` atau `empty($array)` yang lebih ringkas dan cepat."
+    },
+    "php:S131": {
+        "dampak": "Instruksi `switch` tanpa `default` case dapat menyebabkan perilaku tak terduga jika input tidak cocok dengan case manapun.",
+        "saran": "Tambahkan klausul `default` untuk menangani kasus yang tidak terduga."
+    },
+    "php:S1135": {
+        "dampak": "Komentar `TODO` menandakan hutang teknis atau fitur yang belum selesai yang bisa terlupakan.",
+        "saran": "Selesaikan implementasi `TODO` atau pindahkan ke issue tracker agar tidak tertinggal di kode."
+    },
+    "php:S1066": {
+        "dampak": "Dua pernyataan `if` bersarang tanpa statement lain di antaranya sebaiknya digabungkan demi keterbacaan.",
+        "saran": "Gabungkan kondisi `if` bersarang menjadi satu ekspresi menggunakan operator `&&`."
+    },
+    "php:S112": {
+        "dampak": "Melempar `Exception` atau `Error` yang generik memaksa pemanggil menangkap semua error, menyembunyikan bug spesifik.",
+        "saran": "Gunakan exception yang lebih spesifik atau buat custom exception."
+    },
+    "php:S121": {
+        "dampak": "Struktur kontrol (if, for, dll) tanpa kurung kurawal `{}` rentan terhadap error saat kode dimodifikasi.",
+        "saran": "Selalu gunakan kurung kurawal `{}` untuk membungkus blok kode struktur kontrol."
+    },
+    "docker:S7031": {
+        "dampak": "Instruksi `RUN` yang berurutan menciptakan layer image yang berlebihan, memperbesar ukuran image akhir.",
+        "saran": "Gabungkan perintah `RUN` yang berurutan menggunakan operator `&&`."
+    },
+    "docker:S6595": {
+        "dampak": "Memisahkan update cache dan instalasi paket dalam instruksi `RUN` berbeda dapat menyebabkan penggunaan cache usang.",
+        "saran": "Gabungkan perintah update (misal `apt-get update`) dan install dalam satu instruksi `RUN`."
+    },
+    "docker:S6587": {
+        "dampak": "Menyimpan cache paket manager (seperti apt lists) di dalam image memperbesar ukuran image tanpa manfaat.",
+        "saran": "Bersihkan cache paket (misal `rm -rf /var/lib/apt/lists/*`) dalam instruksi `RUN` yang sama dengan instalasi."
+    },
+    "docker:S7018": {
+        "dampak": "Daftar argumen atau paket yang panjang dan tidak terurut menyulitkan pembacaan dan pemeliharaan.",
+        "saran": "Urutkan argumen multi-baris secara alfabetis untuk memudahkan pemeriksaan."
+    },
+    "php:S1764": {
+        "dampak": "Membandingkan nilai yang identik atau menggunakan ekspresi yang sama di kedua sisi operator sangat mencurigakan dan indikasi bug.",
+        "saran": "Periksa logika perbandingan, kemungkinan salah satu variabel salah ketik."
+    },
+    "docker:S7020": {
+        "dampak": "Instruksi `RUN` yang sangat panjang dalam satu baris sulit dibaca dan dipahami.",
+        "saran": "Pecah instruksi panjang menjadi beberapa baris menggunakan backslash (`\\`) untuk keterbacaan."
+    },
+    "docker:S7019": {
+        "dampak": "Menggunakan format shell untuk `CMD`/`ENTRYPOINT` dapat menghalangi sinyal (seperti SIGTERM) mencapai proses aplikasi.",
+        "saran": "Gunakan format exec (array JSON), contoh: `[\"program\", \"arg1\"]`."
+    },
+    "php:S1871": {
+        "dampak": "Memiliki dua cabang kode (misal if dan else) dengan implementasi yang sama persis adalah redundan.",
+        "saran": "Gabungkan cabang yang sama atau refaktor kode untuk menghindari duplikasi."
+    },
+    "Web:S5256": {
+        "dampak": "Tabel tanpa elemen header (`<th>`) tidak memberikan konteks semantik yang cukup untuk teknologi bantu.",
+        "saran": "Gunakan elemen `<th>` untuk sel yang berfungsi sebagai header baris atau kolom."
+    },
+    "php:S138": {
+        "dampak": "Fungsi yang memiliki terlalu banyak baris kode menjadi sulit dipahami, diuji, dan dipelihara.",
+        "saran": "Refaktor fungsi besar menjadi beberapa fungsi yang lebih kecil dan terfokus."
+    },
+    "php:S1116": {
+        "dampak": "Pernyataan kosong (titik koma `;` berlebih) dapat membingungkan dan tidak memiliki fungsi.",
+        "saran": "Hapus titik koma yang tidak perlu."
+    },
+    "Web:S1135": {
+        "dampak": "Komentar `TODO` di HTML/JS client-side sebaiknya tidak terekspos ke publik dan menandakan pekerjaan tertunda.",
+        "saran": "Selesaikan item `TODO` atau kelola di sistem pelacakan tugas."
+    },
+    "php:S1448": {
+        "dampak": "Kelas dengan terlalu banyak metode cenderung memiliki tanggung jawab yang berlebihan dan sulit dirawat.",
+        "saran": "Pecah kelas besar menjadi beberapa kelas kecil dengan tanggung jawab tunggal (Single Responsibility Principle)."
+    },
+    "xml:S125": {
+        "dampak": "Kode yang dikomentari dalam XML membuat file sulit dibaca dan dipelihara.",
+        "saran": "Hapus bagian yang dikomentari jika tidak lagi digunakan."
+    },
+    "php:S2003": {
+        "dampak": "Menggunakan `require` atau `include` biasa dapat menyebabkan error fatal jika file dimuat ganda.",
+        "saran": "Gunakan `require_once` atau `include_once` untuk menjamin file hanya dimuat satu kali."
+    },
+    "php:S4833": {
+        "dampak": "Penggunaan `include`/`require` manual tidak disarankan dalam arsitektur PHP modern yang menggunakan autoloading.",
+        "saran": "Gunakan fitur autoloading (seperti PSR-4 via Composer) dan `use` statement."
+    },
+    "Web:S6847": {
+        "dampak": "Menambahkan event handler pada elemen non-interaktif (div, span) merusak aksesibilitas (tidak bisa diakses keyboard).",
+        "saran": "Gunakan elemen interaktif semantik (seperti `<button>`) atau tambahkan `role` dan manajemen fokus yang sesuai."
+    },
+    "php:S125": {
+        "dampak": "Kode yang dikomentari mengalihkan fokus dari kode yang sebenarnya dieksekusi. Hal ini menciptakan gangguan yang meningkatkan kode pemeliharaan. Dan karena tidak pernah dieksekusi, kode tersebut dengan cepat menjadi usang dan tidak valid.",
+        "saran": "Kode yang dikomentari harus dihapus dan dapat diambil kembali dari riwayat kontrol sumber jika diperlukan."
+    },
+    "javascript:S3504": {
+        "dampak": "Menggunakan `var` dapat menyebabkan bug terkait hosting dan scope variabel yang tidak terduga.",
+        "saran": "Gunakan `let` atau `const` untuk deklarasi variabel yang lebih aman (block-scoped)."
+    },
+    "javascript:S3626": {
+        "dampak": "Pernyataan lompatan redunda (seperti `return` di akhir fungsi void) menambah baris kode tanpa guna.",
+        "saran": "Hapus pernyataan `return`, `break`, atau `continue` yang redundan."
+    },
+    "javascript:S1874": {
+        "dampak": "Menggunakan fitur yang sudah usang (deprecated) berisiko dihapus di versi mendatang dan mungkin memiliki masalah keamanan/kinerja.",
+        "saran": "Ganti penggunaan kode deprecated dengan alternatif yang disarankan."
+    },
+    "javascript:S2486": {
+        "dampak": "Mengabaikan exception yang tertangkap menyembunyikan error dan mempersulit debugging.",
+        "saran": "Tangani exception dengan benar atau log error tersebut."
+    },
+    "javascript:S2681": {
+        "dampak": "Blok kontrol multi-baris tanpa kurung kurawal dapat menyebabkan eksekusi kode yang salah akibat indentasi yang menyesatkan.",
+        "saran": "Selalu gunakan kurung kurawal `{}` untuk blok kontrol multi-baris."
+    },
+    "docker:S6476": {
+        "dampak": "Instruksi Dockerfile dengan casing campuran sulit dibaca dan tidak konsisten.",
+        "saran": "Tulis instruksi Dockerfile (seperti FROM, RUN) dalam huruf besar (UPPERCASE)."
+    },
+    "javascript:S3776": {
+        "dampak": "Fungsi JavaScript yang terlalu kompleks sulit dipahami, diuji, dan dipelihara.",
+        "saran": "Refaktor fungsi kompleks menjadi fungsi-fungsi yang lebih kecil dan sederhana."
+    },
+    "javascript:S6353": {
+        "dampak": "Regex yang bertele-tele (seperti `[0-9]`) lebih sulit dibaca dibandingkan bentuk ringkasnya.",
+        "saran": "Gunakan shorthand character classes (seperti `\\d`) untuk regex yang lebih ringkas."
+    },
+    "Web:FrameWithoutTitleCheck": {
+        "dampak": "Frame tanpa judul menyulitkan pengguna pembaca layar untuk menavigasi antar frame.",
+        "saran": "Tambahkan atribut `title` yang deskriptif pada elemen `<frame>` atau `<iframe>`."
+    },
+    "javascript:S1125": {
+        "dampak": "Membandingkan variabel boolean dengan literal `true`/`false` adalah redundan.",
+        "saran": "Hapus perbandingan literal (misal ganti `if (x == true)` dengan `if (x)`)."
+    },
+    "javascript:S6638": {
+        "dampak": "Ekspresi logika yang selalu bernilai sama mengindikasikan bug atau kode mati.",
+        "saran": "Perbaiki logika ekspresi atau hapus kode yang tidak perlu."
+    },
+    "javascript:S4144": {
+        "dampak": "Metode dengan implementasi identik adalah duplikasi kode yang harus dihindari.",
+        "saran": "Gabungkan metode yang identik atau ekstrak logika umum ke fungsi terpisah."
+    },
+    "javascript:S6660": {
+        "dampak": "Blok `else` yang hanya berisi satu `if` menyebabkan nesting yang tidak perlu.",
+        "saran": "Gunakan `else if` untuk meratakan struktur if-else bersarang."
+    },
+    "css:S125": {
+        "dampak": "Kode CSS yang dikomentari membuat file stylesheet kotor dan sulit dibaca.",
+        "saran": "Hapus kode CSS yang dikomentari."
+    },
+    "javascript:S6582": {
+        "dampak": "Pengecekan null manual bertele-tele dan rawan error dibandingkan optional chaining.",
+        "saran": "Gunakan optional chaining (`?.`) untuk akses properti yang aman dari null."
+    },
+    "javascript:S3863": {
+        "dampak": "Operasi yang dilakukan tidak memiliki efek samping atau hasilnya tidak digunakan.",
+        "saran": "Hapus operasi yang tidak perlu atau gunakan hasil pengembaliannya."
+    },
+    "css:S4656": {
+        "dampak": "Properti CSS yang dideklarasikan dua kali dengan nilai berbeda (tanpa fallback) mungkin salah satunya tidak sengaja.",
+        "saran": "Hapus deklarasi properti duplikat yang tidak diinginkan."
+    },
+    "javascript:S3358": {
+        "dampak": "Operator ternary bersarang sulit dibaca dan dipahami alurnya.",
+        "saran": "Gunakan `if-else` statement atau ekstrak logika ke fungsi terpisah untuk kejelasan."
+    },
+    "Web:ItemTagNotWithinContainerTagCheck": {
+        "dampak": "Item list (seperti `<li>`) di luar container list (`<ul>`/`<ol>`) adalah HTML yang tidak valid.",
+        "saran": "Pastikan tag item list berada di dalam tag container yang sesuai."
+    },
+    "javascript:S930": {
+        "dampak": "Parameter fungsi atau variabel yang dideklarasikan ulang membingungkan dan bisa menimpa nilai sebelumnya.",
+        "saran": "Pastikan nama variabel dan parameter unik dalam scope-nya."
     }
 }
